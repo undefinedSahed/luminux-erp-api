@@ -1,8 +1,6 @@
 import { BaseEntity } from '@src/app/base';
 import { ENUM_COLUMN_TYPES, ENUM_TABLE_NAMES } from '@src/shared';
-import { Type } from 'class-transformer';
-import { Column, Entity, ManyToOne, RelationId } from 'typeorm';
-import { Staff } from '../../staff/entities/staff.entity';
+import { Column, Entity } from 'typeorm';
 
 @Entity(ENUM_TABLE_NAMES.INCOME, { orderBy: { createdAt: 'DESC' } })
 export class Income extends BaseEntity {
@@ -31,12 +29,4 @@ export class Income extends BaseEntity {
 
   @Column({ type: ENUM_COLUMN_TYPES.BOOLEAN, default: true })
   isActive?: boolean;
-
-  @ManyToOne(() => Staff, { onDelete: 'SET NULL' })
-  @Type(() => Staff)
-  recordedBy?: Staff;
-
-  @RelationId((e: Income) => e.recordedBy)
-  @Column({ nullable: true })
-  recordedById?: string;
 }

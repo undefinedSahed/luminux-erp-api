@@ -93,12 +93,14 @@ export enum ENUM_TABLE_NAMES {
   // Concern
   CONCERNS = 'concerns',
   DEPARTMENTS = 'departments',
+  CLIENTS = 'clients',
   ASSETS = 'assets',
   ASSET_CATEGORIES = 'asset_categories',
   ASSET_SUB_CATEGORIES = 'asset_subcategories',
   DEPARTMENT_ASSETS = 'department_assets',
   DESIGNATIONS = 'designations',
   STAFF = 'staffs',
+  UNITS = 'units',
 
   // Finance
   INCOME = 'income',

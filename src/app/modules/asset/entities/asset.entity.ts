@@ -1,10 +1,9 @@
 import { BaseEntity } from '@src/app/base';
 import { ENUM_COLUMN_TYPES, ENUM_TABLE_NAMES } from '@src/shared';
 import { Type } from 'class-transformer';
-import { Column, Entity, ManyToOne, OneToMany, RelationId } from 'typeorm';
+import { Column, Entity, ManyToOne, RelationId } from 'typeorm';
 import { ENUM_ASSET_STATUS } from '../const';
 import { AssetSubCategory } from '../asset-subcategory/entities/subcategory.entity';
-import { DepartmentAsset } from '../../department-asset/entities/dept-asset.entity';
 
 @Entity(ENUM_TABLE_NAMES.ASSETS, { orderBy: { createdAt: 'DESC' } })
 export class Asset extends BaseEntity {
@@ -38,7 +37,4 @@ export class Asset extends BaseEntity {
   @RelationId((e: Asset) => e.subCategory)
   @Column({ nullable: false })
   subCategoryId?: string;
-
-  @OneToMany(() => DepartmentAsset, (da) => da.asset)
-  departmentAssets?: DepartmentAsset[];
 }

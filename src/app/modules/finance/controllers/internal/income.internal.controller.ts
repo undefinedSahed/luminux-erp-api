@@ -14,7 +14,7 @@ import { IncomeService } from '../../services/income.service';
 export class IncomeInternalController {
   constructor(private readonly service: IncomeService) {}
 
-  RELATIONS: FindOptionsRelations<Income> = { recordedBy: true };
+  RELATIONS: FindOptionsRelations<Income> = {};
 
   @Get()
   async findAll(@Query() query: FilterIncomeDto): Promise<SuccessResponse<Income[]>> {

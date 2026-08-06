@@ -5,7 +5,7 @@ export class LoginDTO {
   @ApiProperty({
     type: String,
     required: true,
-    example: 'quicksoftltd@gmail.com',
+    example: 'work.sahed15@gmail.com',
   })
   @IsNotEmpty()
   @IsString()
@@ -14,7 +14,7 @@ export class LoginDTO {
   @ApiProperty({
     type: String,
     required: true,
-    example: '12345678',
+    example: '123456',
   })
   @IsNotEmpty()
   @IsString()

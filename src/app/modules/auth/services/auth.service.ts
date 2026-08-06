@@ -28,8 +28,6 @@ import { Role } from '../../acl/entities/role.entity';
 import { RoleService } from '../../acl/services/role.service';
 import { FileUploadService } from '../../gallery/services/fileUpload.service';
 import { GlobalConfigService } from '../../globalConfig/services/globalConfig.service';
-import { EmailService } from '../../notification/services/email.service';
-import { SmsService } from '../../notification/services/sms.service';
 import { User } from '../../user/entities/user.entity';
 import { UserRoleService } from '../../user/services/userRole.service';
 import { FacebookAuthRequestDTO } from '../dtos/facebookAuthRequest.dto';
@@ -57,8 +55,6 @@ export class AuthService {
     private readonly jwtHelper: JWTHelper,
     private readonly bcryptHelper: BcryptHelper,
     private readonly emailHelper: EmailHelper,
-    private readonly emailService: EmailService,
-    private readonly smsService: SmsService,
     private readonly globalConfigService: GlobalConfigService,
     private readonly fileUploadService: FileUploadService,
   ) { }
@@ -768,7 +764,7 @@ export class AuthService {
         template,
       );
       try {
-        this.emailService.sendEmailThroughDefaultGateway({
+        await this.emailHelper.sendEmail({
           to: identifier,
           subject: `Verification OTP - ${user.fullName}`,
           html: emailContent,
@@ -781,7 +777,7 @@ export class AuthService {
     } else if (sentTo.isPhoneNumber) {
       const smsContent = `Your OTP for ${verificationType} is ${otp}. It will expire in ${expiresIn} minutes.`;
       try {
-        this.smsService.sendSmsThroughDefaultGateway({
+        await this.emailHelper.sendSms({
           recipient: identifier,
           message: smsContent,
         });

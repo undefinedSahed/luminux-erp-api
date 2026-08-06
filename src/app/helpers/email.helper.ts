@@ -9,6 +9,14 @@ const ReadFile = Util.promisify(fs.readFile);
 
 @Injectable()
 export class EmailHelper {
+  public async sendEmail(payload: { to: string; subject: string; html: string }): Promise<void> {
+    console.info(`[EmailHelper] Simulated email send to ${payload.to} with subject: ${payload.subject}`);
+  }
+
+  public async sendSms(payload: { recipient: string; message: string }): Promise<void> {
+    console.info(`[EmailHelper] Simulated SMS send to ${payload.recipient}: ${payload.message}`);
+  }
+
   public async createEmailContent(data: GenericObject, templateType: string): Promise<string> {
     try {
       const templatePath = path.join(
@@ -22,6 +30,7 @@ export class EmailHelper {
       return template(data);
     } catch (error) {
       console.error('Error reading email template:', error);
+      return '';
     }
   }
 }

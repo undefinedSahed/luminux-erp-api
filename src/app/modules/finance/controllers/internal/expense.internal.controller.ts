@@ -14,7 +14,7 @@ import { ExpenseService } from '../../services/expense.service';
 export class ExpenseInternalController {
   constructor(private readonly service: ExpenseService) {}
 
-  RELATIONS: FindOptionsRelations<Expense> = { recordedBy: true, approvedBy: true };
+  RELATIONS: FindOptionsRelations<Expense> = {};
 
   @Get()
   async findAll(@Query() query: FilterExpenseDto): Promise<SuccessResponse<Expense[]>> {

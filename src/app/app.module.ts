@@ -9,41 +9,29 @@ import { RedisModule } from './modules/@redis/redis.module';
 import { AclModule } from './modules/acl/acl.module';
 import { AssetModule } from './modules/asset/asset.module';
 import { AuthModule } from './modules/auth/auth.module';
+import { ClientModule } from './modules/client/client.module';
 import { AuthGuard } from './modules/auth/guards/local-auth.guard';
 import { ConcernModule } from './modules/concern/concern.module';
-import { DepartmentModule } from './modules/department/department.module';
 import { FinanceModule } from './modules/finance/finance.module';
-import { FormModule } from './modules/form/form.module';
 import { GalleryModule } from './modules/gallery/gallery.module';
-import { InquiryModule } from './modules/inquiry/inquiry.module';
-import { NoteModule } from './modules/note/note.module';
-import { NotificationModule } from './modules/notification/notification.module';
-import { ShiftModule } from './modules/shift/shift.module';
-import { StaffModule } from './modules/staff/staff.module';
-import { SupportModule } from './modules/support/support.module';
 import { UserModule } from './modules/user/user.module';
 import { UniqueValidatorPipe } from './pipes/uniqueValidator.pipe';
+import { UnitModule } from './modules/unit/unit.module';
 
 const MODULES = [
   DatabaseModule,
   HelpersModule,
   ScheduleModule.forRoot(),
-  AuthModule,
   RedisModule,
-  GalleryModule,
+  AuthModule,
   AclModule,
   UserModule,
-  NotificationModule,
-  FormModule,
-  SupportModule,
-  NoteModule,
+  GalleryModule,
   ConcernModule,
-  DepartmentModule,
   AssetModule,
-  InquiryModule,
+  ClientModule,
   FinanceModule,
-  StaffModule,
-  ShiftModule
+  UnitModule
 ];
 const PIPES = [UniqueValidatorPipe];
 
