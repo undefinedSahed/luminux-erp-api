@@ -91,8 +91,8 @@ export const ENV = {
   },
   mail: {
     gmail: {
-      clientId: '373266192637-l50tghol2up6unt1d8b5g8mp30b6cfbm.apps.googleusercontent.com',
-      clientSecret: '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',
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_SECRET,
       tokens: {
         access_token:
           'ya29.a0AWY7Ckn9zPJ1RvZxbe72RiBHfvptjTJ-nuRNePOw_k_V18wW6YjSRmw33OCnJ62fj1U-0IsAT58oc9A-4bfyB0Vi26iYW2qDZB2MlqC58t46jrSbaxvwwIYsgeE6zZHVr2TFQR21fCeTOB17f0Y5P_-BqvVaaCgYKAW4SARISFQG1tDrpFYMPrbp_lD_aQ5sOdFl8rg0163',
