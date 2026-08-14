@@ -102,6 +102,7 @@ export enum ENUM_TABLE_NAMES {
   STAFF = 'staffs',
   UNITS = 'units',
   RAW_MATERIALS = 'raw_materials',
+  FINISHED_PRODUCTS = 'finished_products',
 
   // Finance
   INCOME = 'income',

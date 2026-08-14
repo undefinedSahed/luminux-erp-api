@@ -18,6 +18,7 @@ import { RawMaterialModule } from './modules/rawMaterial/rawMaterial.module';
 import { UnitModule } from './modules/unit/unit.module';
 import { UserModule } from './modules/user/user.module';
 import { UniqueValidatorPipe } from './pipes/uniqueValidator.pipe';
+import { FinishedProductModule } from './modules/finishedProduct/finishedProduct.module';
 
 const MODULES = [
   DatabaseModule,
@@ -34,6 +35,7 @@ const MODULES = [
   FinanceModule,
   UnitModule,
   RawMaterialModule,
+  FinishedProductModule
 ];
 const PIPES = [UniqueValidatorPipe];
 
